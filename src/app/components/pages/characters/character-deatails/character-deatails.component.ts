@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CharcterService } from '@app/shared/services/charcter.service';
 import { Location } from '@angular/common';
 import { take } from 'rxjs/operators';
+import { TrackHttpError } from '@app/shared/models/TrackHttpError';
 
 @Component({
   selector: 'app-character-deatails',
@@ -12,7 +13,7 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./character-deatails.component.scss']
 })
 export class CharacterDeatailsComponent implements OnInit {
-  character$:Observable<Character>;
+  character$:Observable<Character | TrackHttpError>;
   constructor(
     private route: ActivatedRoute,
     private characterSvc: CharcterService,
