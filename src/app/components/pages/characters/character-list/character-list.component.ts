@@ -4,6 +4,7 @@ import {CharcterService} from './../../../../shared/services/charcter.service';
 import { take, filter } from 'rxjs/operators';
 import {DOCUMENT} from '@angular/common';
 import { ActivatedRoute, ParamMap, Router, NavigationEnd } from '@angular/router';
+import { TrackHttpError } from '@app/shared/models/TrackHttpError';
 type RequesInfo = {
   next: string;
 }
@@ -101,6 +102,7 @@ export class CharacterListComponent implements OnInit {
           this.characters = [];
         }
 
-      })
+      }, (error:TrackHttpError) => console.log(error.friendlyMessage)
+      )
   }
 }
